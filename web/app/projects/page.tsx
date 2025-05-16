@@ -4,18 +4,34 @@ import Image from "next/image";
 import Navbar from "../components/Navbar";
 
 export default function Projects() {
-    const sectionsRef = {
-        kalaging: useRef(null),
-        betgame: useRef(null),
-        albertos: useRef(null),
-        onlyfriends: useRef(null),
+    const sectionsRef: {
+        kalaging: React.RefObject<HTMLElement>;
+        betgame: React.RefObject<HTMLElement>;
+        albertos: React.RefObject<HTMLElement>;
+        onlyfriends: React.RefObject<HTMLElement>;
+    } = {
+        kalaging: useRef<HTMLElement>(null),
+        betgame: useRef<HTMLElement>(null),
+        albertos: useRef<HTMLElement>(null),
+        onlyfriends: useRef<HTMLElement>(null),
     };
 
-    const scrollTo = (sectionId) => {
+    interface Project {
+        id: keyof typeof sectionsRef;
+        name: string;
+        description: string;
+        roles: string[];
+        img: string;
+        colors: { from: string; to: string };
+    }
+
+    type SectionId = keyof typeof sectionsRef;
+
+    const scrollTo = (sectionId: SectionId) => {
         sectionsRef[sectionId]?.current?.scrollIntoView({ behavior: "smooth" });
     };
 
-    const projects = [
+    const projects: Project[] = [
         {
             id: "kalaging",
             name: "KALAGINGGAMEFARM",
