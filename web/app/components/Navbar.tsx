@@ -11,14 +11,18 @@ export default function Navbar() {
         { label: 'MY DETAILS', path: '/' },
         { label: 'TECHSTACK', path: '/techstack' },
         { label: 'PROJECTS', path: '/projects' },
-        
     ];
 
     return (
-        <nav className="flex flex-col items-center bg-black h-screen w-32 py-6 select-none">
+        <nav className="fixed top-0 left-0 h-screen w-32 bg-black py-6 flex flex-col items-center z-50">
             <div className="mb-8 cursor-pointer">
                 <Link href="/">
-                    <Image src="/images/monkey.gif" alt="Monkey Logo" width={60} height={60} />
+                    <Image
+                        src="/images/monkey.gif"
+                        alt="Monkey Logo"
+                        width={60}
+                        height={60}
+                    />
                 </Link>
             </div>
             <ul className="flex flex-col gap-6 w-full">
