@@ -44,7 +44,7 @@ export default function Details() {
                             </h1>
                             <p className="text-lg text-gray-600">📍 Cebu, Philippines</p>
                             <p className="text-base text-gray-700 leading-relaxed">
-                                I'm a <span className="font-semibold text-gray-900">Backend Developer</span> with hands-on experience building reliable APIs, working with databases, and maintaining scalable server-side systems.
+                                I am a <span className="font-semibold text-gray-900">Backend Developer</span> with hands-on experience building reliable APIs, working with databases, and maintaining scalable server-side systems.
                                 <br /><br />
                                 I also enjoy creating clean, responsive interfaces as a <span className="font-semibold text-gray-900">Frontend Developer</span> and delivering complete mobile solutions. My skills also extend into <span className="font-semibold text-gray-900">UI/UX Design</span>, focusing on simplicity and usability.
                             </p>
