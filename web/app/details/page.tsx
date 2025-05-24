@@ -4,59 +4,64 @@ import { FaGithub, FaLinkedin, FaFacebook } from 'react-icons/fa';
 
 export default function Details() {
     return (
-        <div className="flex flex-row min-h-screen w-full overflow-hidden font-sans bg-gray-100">
+        <div className="flex flex-row min-h-screen w-full bg-gradient-to-r from-[#F3EDE7] to-[#E9E4E1] font-sans">
             <Navbar />
-            <main className="flex-1 relative">
-                {/* Diagonal background */}
+            <main className="flex-1 relative overflow-hidden">
+                {/* Background pattern */}
                 <div className="absolute inset-0 z-0">
-                    <svg width="100%" height="100%" viewBox="0 0 100 100" preserveAspectRatio="none" className="w-full h-full">
-                        <polygon points="0,0 65,0 35,100 0,100" fill="#9C8578" />
-                        <polygon points="65,0 100,0 100,100 35,100" fill="#D9D9D9" />
+                    <svg
+                        width="100%"
+                        height="100%"
+                        viewBox="0 0 100 100"
+                        preserveAspectRatio="none"
+                        className="w-full h-full"
+                    >
+                        <polygon points="0,0 65,0 35,100 0,100" fill="#CDBDB2" />
+                        <polygon points="65,0 100,0 100,100 35,100" fill="#F5F3F1" />
                     </svg>
                 </div>
 
-                <div className="relative z-10 flex flex-col justify-center items-center h-screen px-8">
-                    {/* Top line */}
-                    <div className="w-full border-t border-black mb-8" />
+                <div className="relative z-10 flex flex-col justify-center items-center h-screen px-6 md:px-12">
+                    {/* Top border */}
+                    <div className="w-full border-t border-gray-300 mb-8" />
 
-                    <div className="flex flex-row w-full max-w-6xl items-start gap-12 bg-white p-10 rounded-2xl shadow-2xl">
+                    <div className="flex flex-col md:flex-row w-full max-w-6xl items-start gap-10 bg-white/90 backdrop-blur-sm p-10 md:p-12 rounded-3xl shadow-xl">
                         {/* Profile image */}
-                        <div className="flex-shrink-0">
+                        <div className="flex-shrink-0 self-center">
                             <Image
                                 src="/images/me.png"
                                 alt="Kent John Brian C. Flores"
                                 width={200}
                                 height={200}
-                                className="rounded-2xl object-cover border-4 border-gray-300"
+                                className="rounded-3xl object-cover border-4 border-gray-200 shadow-md"
                             />
                         </div>
 
-                        {/* Info box */}
-                        <div className="flex flex-col text-gray-800 space-y-4">
-                            <h1 className="text-5xl font-extrabold text-gray-900 leading-tight">
+                        {/* Info section */}
+                        <div className="flex flex-col text-gray-800 space-y-6 max-w-2xl">
+                            <h1 className="text-4xl font-bold text-gray-900 leading-tight">
                                 Kent John Brian C. Flores
                             </h1>
-                            <p className="text-2xl font-medium text-gray-700">📍 Cebu, Philippines</p>
-                            <p className="text-xl text-gray-700 leading-relaxed">
-                                I’m a passionate <span className="font-semibold">Backend Developer</span> with solid experience
-                                in designing APIs, managing databases, and building reliable server-side applications. <br />
-                                I also enjoy working on <span className="font-semibold">Frontend</span> projects, crafting beautiful and user-friendly interfaces, and I’m capable of delivering end-to-end solutions as a
-                                <span className="font-semibold"> Mobile Developer</span> or <span className="font-semibold">UI/UX Designer</span>.
+                            <p className="text-lg text-gray-600">📍 Cebu, Philippines</p>
+                            <p className="text-base text-gray-700 leading-relaxed">
+                                I'm a <span className="font-semibold text-gray-900">Backend Developer</span> with hands-on experience building reliable APIs, working with databases, and maintaining scalable server-side systems.
+                                <br /><br />
+                                I also enjoy creating clean, responsive interfaces as a <span className="font-semibold text-gray-900">Frontend Developer</span> and delivering complete mobile solutions. My skills also extend into <span className="font-semibold text-gray-900">UI/UX Design</span>, focusing on simplicity and usability.
                             </p>
 
-                            {/* Contact and Socials */}
-                            <div className="mt-4 space-y-3">
-                                <p className="text-xl">📧 <a href="mailto:kentjohnbrianflores@gmail.com" className="text-blue-600 hover:underline">kentjohnbrianflores@gmail.com</a></p>
-                                
-                                {/* Social Icons */}
-                                <div className="flex items-center gap-6 mt-3 text-3xl text-gray-700">
-                                    <a href="https://github.com/Ikennot04" target="_blank" rel="noopener noreferrer" aria-label="GitHub" className="hover:text-black">
+                            {/* Contact and socials */}
+                            <div className="space-y-4">
+                                <p className="text-base">
+                                    📧 <a href="mailto:kentjohnbrianflores@gmail.com" className="text-blue-600 hover:underline">kentjohnbrianflores@gmail.com</a>
+                                </p>
+                                <div className="flex gap-6 text-xl text-gray-700">
+                                    <a href="https://github.com/Ikennot04" target="_blank" rel="noopener noreferrer" className="hover:text-black transition">
                                         <FaGithub />
                                     </a>
-                                    <a href="https://www.linkedin.com/in/kent-john-brian-flores-934a66361" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="hover:text-blue-700">
+                                    <a href="https://www.linkedin.com/in/kent-john-brian-flores-934a66361" target="_blank" rel="noopener noreferrer" className="hover:text-blue-700 transition">
                                         <FaLinkedin />
                                     </a>
-                                    <a href="https://www.facebook.com/kentjohnbrian.flores.3" target="_blank" rel="noopener noreferrer" aria-label="Facebook" className="hover:text-blue-600">
+                                    <a href="https://www.facebook.com/kentjohnbrian.flores.3" target="_blank" rel="noopener noreferrer" className="hover:text-blue-600 transition">
                                         <FaFacebook />
                                     </a>
                                 </div>
@@ -64,8 +69,8 @@ export default function Details() {
                         </div>
                     </div>
 
-                    {/* Bottom line */}
-                    <div className="w-full border-t border-black mt-8" />
+                    {/* Bottom border */}
+                    <div className="w-full border-t border-gray-300 mt-8" />
                 </div>
             </main>
         </div>

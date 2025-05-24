@@ -1,19 +1,14 @@
-"use client";
+'use client';
 
 import Navbar from '../components/Navbar';
 import Image from 'next/image';
 
 export default function Techstack() {
-    interface ScrollToFunction {
-        (id: string): void;
+    interface Tech {
+        label: string;
+        img: string;
+        mastery: number;
     }
-
-    const scrollTo: ScrollToFunction = (id) => {
-        const element: HTMLElement | null = document.getElementById(id);
-        if (element) {
-            element.scrollIntoView({ behavior: 'smooth' });
-        }
-    };
 
     const techData = {
         frontend: [
@@ -30,42 +25,42 @@ export default function Techstack() {
             { label: 'Flutter', img: '/images/flutter.png', mastery: 90 },
             { label: 'Dart', img: '/images/dart.png', mastery: 87 },
         ],
+        versionControl: [
+            { label: 'Git', img: '/images/git.png', mastery: 92 },
+            { label: 'GitHub', img: '/images/github.jpg', mastery: 95 },
+        ],
     };
 
-    interface Tech {
-        label: string;
-        img: string;
-        mastery: number;
-    }
-
-    interface RenderSectionProps {
-        id: string;
-        title: string;
-        techs: Tech[];
-        bgFrom: string;
-        bgTo: string;
-    }
+    const scrollTo = (id: string) => {
+        const element = document.getElementById(id);
+        if (element) element.scrollIntoView({ behavior: 'smooth' });
+    };
 
     const renderSection = (
-        id: RenderSectionProps['id'],
-        title: RenderSectionProps['title'],
-        techs: RenderSectionProps['techs'],
-        bgFrom: RenderSectionProps['bgFrom'],
-        bgTo: RenderSectionProps['bgTo']
+        id: string,
+        title: string,
+        techs: Tech[],
+        bgFrom: string,
+        bgTo: string
     ) => (
-        <section id={id} className={`min-h-screen flex flex-col justify-center items-center bg-gradient-to-b from-[${bgFrom}] to-[${bgTo}] text-white px-4`}>
-            <h2 className="text-5xl md:text-6xl font-bold tracking-wider mb-12 text-center">{title}</h2>
+        <section
+            id={id}
+            className={`min-h-screen flex flex-col justify-center items-center bg-gradient-to-b from-[${bgFrom}] to-[${bgTo}] text-white px-4 py-20`}
+        >
+            <h2 className="text-5xl md:text-6xl font-extrabold tracking-wider mb-12 text-center drop-shadow-lg">
+                {title}
+            </h2>
             <div className="flex flex-wrap justify-center gap-16 max-w-6xl">
-                {techs.map(({ label, img, mastery }: Tech) => (
+                {techs.map(({ label, img, mastery }) => (
                     <div key={label} className="flex flex-col items-center hover:scale-105 transition-transform">
                         <div className="bg-white rounded-xl flex items-center justify-center w-64 h-64 shadow-xl mb-4">
                             <Image src={img} alt={`${label} Logo`} width={160} height={160} />
                         </div>
-                        <span className="text-2xl font-bold tracking-wider mb-2">{label.toUpperCase()}</span>
+                        <span className="text-2xl font-semibold tracking-wide mb-2">{label.toUpperCase()}</span>
                         <div className="w-64 bg-white rounded-full h-4 overflow-hidden mb-1">
                             <div className="bg-green-500 h-full" style={{ width: `${mastery}%` }}></div>
                         </div>
-                        <span className="text-lg">{mastery}% Mastery</span>
+                        <span className="text-base">{mastery}% Mastery</span>
                     </div>
                 ))}
             </div>
@@ -73,24 +68,28 @@ export default function Techstack() {
     );
 
     return (
-        <div className="flex flex-row w-full overflow-hidden relative">
+        <div className="flex flex-row w-full overflow-hidden relative font-sans">
             <Navbar />
-            <main className="flex-1 flex flex-col scroll-smooth overflow-y-auto pb-20">
-                {renderSection('frontend', 'FRONT-END DEVELOPMENT', techData.frontend, '#1f2937', '#374151')}
-                {renderSection('backend', 'BACK-END DEVELOPMENT', techData.backend, '#111827', '#1f2937')}
-                {renderSection('mobile', 'MOBILE DEVELOPMENT', techData.mobile, '#1e3a8a', '#3b82f6')}
+            <main className="flex-1 flex flex-col scroll-smooth overflow-y-auto">
+                {renderSection('frontend', 'Front-End Development', techData.frontend, '#1f2937', '#374151')}
+                {renderSection('backend', 'Back-End Development', techData.backend, '#111827', '#1f2937')}
+                {renderSection('mobile', 'Mobile Development', techData.mobile, '#1e3a8a', '#3b82f6')}
+                {renderSection('versionControl', 'Version Control (Git & GitHub)', techData.versionControl, '#0f172a', '#1e293b')}
             </main>
 
-            {/* BOTTOM NAVIGATION (Fixed) */}
-            <div className="fixed bottom-0 left-0 right-0 bg-gray-900 text-white p-3 flex justify-around items-center z-50 shadow-inner">
-                <button onClick={() => scrollTo('frontend')} className="text-sm md:text-lg hover:underline font-semibold">
+            {/* Bottom Navigation */}
+            <div className="fixed bottom-0 left-0 right-0 bg-gray-900 text-white p-4 flex justify-around items-center z-50 shadow-inner">
+                <button onClick={() => scrollTo('frontend')} className="text-sm md:text-lg hover:underline font-medium">
                     Front-End
                 </button>
-                <button onClick={() => scrollTo('backend')} className="text-sm md:text-lg hover:underline font-semibold">
+                <button onClick={() => scrollTo('backend')} className="text-sm md:text-lg hover:underline font-medium">
                     Back-End
                 </button>
-                <button onClick={() => scrollTo('mobile')} className="text-sm md:text-lg hover:underline font-semibold">
+                <button onClick={() => scrollTo('mobile')} className="text-sm md:text-lg hover:underline font-medium">
                     Mobile
+                </button>
+                <button onClick={() => scrollTo('versionControl')} className="text-sm md:text-lg hover:underline font-medium">
+                    Git & GitHub
                 </button>
             </div>
         </div>

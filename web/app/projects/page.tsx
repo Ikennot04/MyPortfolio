@@ -46,7 +46,7 @@ export default function Projects() {
             name: "BETGAME",
             description:
                 "A gambling platform offering multiple games where users can play and earn. It emphasizes interactive gaming and user engagement.",
-            roles: ["Player", "Game Manager"],
+            roles: ["Player", "Game Manager", "Admin"],
             img: "/images/betgame.png",
             colors: { from: "#111827", to: "#1f2937" },
         },
@@ -55,7 +55,7 @@ export default function Projects() {
             name: "ALBERTO'S PIZZA SHOP",
             description:
                 "A POS system built for cashiers and the owner. It allows efficient tracking of sales and inventory in a streamlined, user-friendly interface.",
-            roles: ["Owner", "Cashier"],
+            roles: ["Owner", "Cashier", "MainAdmin"],
             img: "/images/albertos.png",
             colors: { from: "#1e3a8a", to: "#3b82f6" },
         },
@@ -64,7 +64,7 @@ export default function Projects() {
             name: "ONLYFRIENDS",
             description:
                 "A messaging app where users can chat with friends and join a global chat to connect with new people. It supports private messaging and real-time conversations.",
-            roles: ["User"],
+            roles: ["User", "Admin"],
             img: "/images/onlyfriends.png",
             colors: { from: "#312e81", to: "#4f46e5" },
         },
