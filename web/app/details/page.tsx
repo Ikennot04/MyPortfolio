@@ -1,78 +1,71 @@
 import Image from 'next/image';
-import Navbar from '../components/Navbar';
 import { FaGithub, FaLinkedin, FaFacebook } from 'react-icons/fa';
 
 export default function Details() {
     return (
-        <div className="flex flex-row min-h-screen w-full bg-gradient-to-r from-[#F3EDE7] to-[#E9E4E1] font-sans">
-            <Navbar />
-            <main className="flex-1 relative overflow-hidden">
-                {/* Background pattern */}
-                <div className="absolute inset-0 z-0">
-                    <svg
-                        width="100%"
-                        height="100%"
-                        viewBox="0 0 100 100"
-                        preserveAspectRatio="none"
-                        className="w-full h-full"
-                    >
-                        <polygon points="0,0 65,0 35,100 0,100" fill="#CDBDB2" />
-                        <polygon points="65,0 100,0 100,100 35,100" fill="#F5F3F1" />
-                    </svg>
-                </div>
+        <div className="relative overflow-hidden">
+            <div className="absolute inset-0 -z-10">
+                <div className="absolute -top-32 -left-32 h-[420px] w-[420px] rounded-full bg-amber-400/15 blur-3xl" />
+                <div className="absolute -bottom-32 -right-32 h-[520px] w-[520px] rounded-full bg-rose-400/15 blur-3xl" />
+                <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(255,255,255,0.10),transparent_55%)]" />
+            </div>
 
-                <div className="relative z-10 flex flex-col justify-center items-center h-screen px-6 md:px-12">
-                    {/* Top border */}
-                    <div className="w-full border-t border-gray-300 mb-8" />
-
-                    <div className="flex flex-col md:flex-row w-full max-w-6xl items-start gap-10 bg-white/90 backdrop-blur-sm p-10 md:p-12 rounded-3xl shadow-xl">
-                        {/* Profile image */}
-                        <div className="flex-shrink-0 self-center">
+            <div className="px-6 py-14 md:px-12 md:py-20">
+                <div className="mx-auto max-w-6xl rounded-3xl border border-white/10 bg-white/5 backdrop-blur p-8 md:p-12 shadow-2xl">
+                    <div className="grid grid-cols-1 md:grid-cols-[220px_1fr] gap-10 items-start">
+                        <div className="flex justify-center md:justify-start">
                             <Image
                                 src="/images/me.png"
                                 alt="Kent John Brian C. Flores"
-                                width={200}
-                                height={200}
-                                className="rounded-3xl object-cover border-4 border-gray-200 shadow-md"
+                                width={220}
+                                height={220}
+                                className="rounded-3xl object-cover border border-white/10"
                             />
                         </div>
 
-                        {/* Info section */}
-                        <div className="flex flex-col text-gray-800 space-y-6 max-w-2xl">
-                            <h1 className="text-4xl font-bold text-gray-900 leading-tight">
-                                Kent John Brian C. Flores
-                            </h1>
-                            <p className="text-lg text-gray-600">📍 Cebu, Philippines</p>
-                            <p className="text-base text-gray-700 leading-relaxed">
-                                I am a <span className="font-semibold text-gray-900">Backend Developer</span> with hands-on experience building reliable APIs, working with databases, and maintaining scalable server-side systems.
-                                <br /><br />
-                                I also enjoy creating clean, responsive interfaces as a <span className="font-semibold text-gray-900">Frontend Developer</span> and delivering complete mobile solutions. My skills also extend into <span className="font-semibold text-gray-900">UI/UX Design</span>, focusing on simplicity and usability.
+                        <div className="space-y-6">
+                            <div>
+                                <h1 className="text-3xl md:text-5xl font-semibold tracking-tight text-white leading-tight">
+                                    Kent John Brian C. Flores
+                                </h1>
+                                <p className="mt-2 text-zinc-300">📍 Cebu, Philippines</p>
+                            </div>
+
+                            <p className="text-zinc-200 leading-relaxed">
+                                I’m a <span className="font-semibold text-white">Backend Developer</span> who builds reliable APIs and
+                                scalable server-side systems. I also enjoy crafting clean, responsive UIs as a{' '}
+                                <span className="font-semibold text-white">Frontend Developer</span>, and I can deliver end-to-end solutions
+                                including <span className="font-semibold text-white">Mobile Development</span> and{' '}
+                                <span className="font-semibold text-white">UI/UX Design</span>.
                             </p>
 
-                            {/* Contact and socials */}
-                            <div className="space-y-4">
-                                <p className="text-base">
-                                    📧 <a href="mailto:kentjohnbrianflores@gmail.com" className="text-blue-600 hover:underline">kentjohnbrianflores@gmail.com</a>
-                                </p>
-                                <div className="flex gap-6 text-xl text-gray-700">
-                                    <a href="https://github.com/Ikennot04" target="_blank" rel="noopener noreferrer" className="hover:text-black transition">
+                            <div className="flex flex-col gap-3">
+                                <div className="text-zinc-200">
+                                    📧{' '}
+                                    <a
+                                        href="mailto:kentjohnbrianflores@gmail.com"
+                                        className="text-white hover:text-zinc-200 underline underline-offset-4 decoration-white/30 hover:decoration-white/60 transition"
+                                    >
+                                        kentjohnbrianflores@gmail.com
+                                    </a>
+                                </div>
+
+                                <div className="flex gap-4 text-2xl text-zinc-200">
+                                    <a href="https://github.com/Ikennot04" target="_blank" rel="noopener noreferrer" aria-label="GitHub" className="hover:text-white transition">
                                         <FaGithub />
                                     </a>
-                                    <a href="https://www.linkedin.com/in/kent-john-brian-flores-934a66361" target="_blank" rel="noopener noreferrer" className="hover:text-blue-700 transition">
+                                    <a href="https://www.linkedin.com/in/kent-john-brian-flores-934a66361" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="hover:text-white transition">
                                         <FaLinkedin />
                                     </a>
-                                    <a href="https://www.facebook.com/kentjohnbrian.flores.3" target="_blank" rel="noopener noreferrer" className="hover:text-blue-600 transition">
+                                    <a href="https://www.facebook.com/kentjohnbrian.flores.3" target="_blank" rel="noopener noreferrer" aria-label="Facebook" className="hover:text-white transition">
                                         <FaFacebook />
                                     </a>
                                 </div>
                             </div>
                         </div>
                     </div>
-
-                    {/* Bottom border */}
-                    <div className="w-full border-t border-gray-300 mt-8" />
                 </div>
-            </main>
+            </div>
         </div>
     );
 }

@@ -1,137 +1,28 @@
 "use client";
-import { useRef } from "react";
-import Image from "next/image";
-import Navbar from "../components/Navbar";
+import Link from "next/link";
 
 export default function Projects() {
-    const sectionsRef: {
-        kalaging: React.RefObject<HTMLElement>;
-        betgame: React.RefObject<HTMLElement>;
-        albertos: React.RefObject<HTMLElement>;
-        onlyfriends: React.RefObject<HTMLElement>;
-    } = {
-        kalaging: useRef<HTMLElement>(null),
-        betgame: useRef<HTMLElement>(null),
-        albertos: useRef<HTMLElement>(null),
-        onlyfriends: useRef<HTMLElement>(null),
-    };
-
-    interface Project {
-        id: keyof typeof sectionsRef;
-        name: string;
-        description: string;
-        roles: string[];
-        img: string;
-        colors: { from: string; to: string };
-    }
-
-    type SectionId = keyof typeof sectionsRef;
-
-    const scrollTo = (sectionId: SectionId) => {
-        sectionsRef[sectionId]?.current?.scrollIntoView({ behavior: "smooth" });
-    };
-
-    const projects: Project[] = [
-        {
-            id: "kalaging",
-            name: "KALAGINGGAMEFARM",
-            description:
-                "A gamefowl management system with three roles: Admin, Handler, and Customer. It helps organize gamefowl data, manage users, and streamline farm operations.",
-            roles: ["Admin", "Handler", "Customer"],
-            img: "/images/kalaginggamefarm.png",
-            colors: { from: "#1f2937", to: "#374151" },
-        },
-        {
-            id: "betgame",
-            name: "BETGAME",
-            description:
-                "A gambling platform offering multiple games where users can play and earn. It emphasizes interactive gaming and user engagement.",
-            roles: ["Player", "Game Manager", "Admin"],
-            img: "/images/betgame.png",
-            colors: { from: "#111827", to: "#1f2937" },
-        },
-        {
-            id: "albertos",
-            name: "ALBERTO'S PIZZA SHOP",
-            description:
-                "A POS system built for cashiers and the owner. It allows efficient tracking of sales and inventory in a streamlined, user-friendly interface.",
-            roles: ["Owner", "Cashier", "MainAdmin"],
-            img: "/images/albertos.png",
-            colors: { from: "#1e3a8a", to: "#3b82f6" },
-        },
-        {
-            id: "onlyfriends",
-            name: "ONLYFRIENDS",
-            description:
-                "A messaging app where users can chat with friends and join a global chat to connect with new people. It supports private messaging and real-time conversations.",
-            roles: ["User", "Admin"],
-            img: "/images/onlyfriends.png",
-            colors: { from: "#312e81", to: "#4f46e5" },
-        },
-    ];
+    const pasaHeroUrl =
+        "https://pasa-hero-landing-page.vercel.app/?fbclid=IwZXh0bgNhZW0CMTAAYnJpZBExQ09pTWZLRTV4TWpxVGRaZ3NydGMGYXBwX2lkEDIyMjAzOTE3ODgyMDA4OTIAAR4B14nUjhICkmLZVAyttTMYCgGNyKCq1f2hVDRtOKDDaC3fT4QtqBAPBZ1auA_aem_0QqxyCmG9fY4ppaRrs3JeA";
 
     return (
-        <div className="flex flex-row w-full overflow-hidden relative">
-            <Navbar />
-            <main className="flex-1 flex flex-col scroll-smooth overflow-y-auto pb-20">
-                {projects.map((project) => (
-                    <section
-                        key={project.id}
-                        id={project.id}
-                        ref={sectionsRef[project.id]}
-                        className={`min-h-screen flex flex-col justify-center items-center bg-gradient-to-b from-[${project.colors.from}] to-[${project.colors.to}] text-white px-6 py-12`}
+        <div className="w-full overflow-hidden relative">
+            <main className="min-h-[calc(100vh-3.5rem)] md:min-h-screen flex items-center justify-center px-6 py-16">
+                <div className="w-full max-w-3xl rounded-3xl border border-white/10 bg-white/5 p-10 text-center">
+                    <h1 className="text-4xl md:text-5xl font-semibold tracking-tight text-white">Projects</h1>
+                    <p className="mt-4 text-zinc-300">
+                        Featured project
+                    </p>
+                    <Link
+                        href={pasaHeroUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="mt-8 inline-flex rounded-xl border border-white/20 bg-white/10 px-6 py-3 text-lg font-semibold text-white transition hover:bg-white/20"
                     >
-                        <h1 className="text-5xl md:text-6xl font-bold tracking-wider mb-10 text-center">
-                            {project.name}
-                        </h1>
-                        <div className="flex flex-col md:flex-row items-center gap-10 max-w-6xl w-full">
-                            <div className="relative w-80 h-80 md:w-[450px] md:h-[450px] rounded-xl overflow-hidden shadow-xl bg-white">
-                                <Image
-                                    src={project.img}
-                                    alt={project.name}
-                                    layout="fill"
-                                    objectFit="contain"
-                                    className="rounded-xl"
-                                />
-                            </div>
-                            <div className="text-center md:text-left max-w-xl">
-                                <p className="text-lg font-semibold italic mb-3">
-                                    Roles: {project.roles.join(", ")}
-                                </p>
-                                <p className="text-base md:text-lg">{project.description}</p>
-                            </div>
-                        </div>
-                    </section>
-                ))}
+                        PASAHERO APP
+                    </Link>
+                </div>
             </main>
-
-            {/* BOTTOM NAVIGATION (Fixed) */}
-            <div className="fixed bottom-0 left-0 right-0 bg-gray-900 text-white p-3 flex justify-around items-center z-50 shadow-inner">
-                <button
-                    onClick={() => scrollTo("kalaging")}
-                    className="text-sm md:text-lg hover:underline font-semibold"
-                >
-                    Kalaging
-                </button>
-                <button
-                    onClick={() => scrollTo("betgame")}
-                    className="text-sm md:text-lg hover:underline font-semibold"
-                >
-                    Betgame
-                </button>
-                <button
-                    onClick={() => scrollTo("albertos")}
-                    className="text-sm md:text-lg hover:underline font-semibold"
-                >
-                    Albertos
-                </button>
-                <button
-                    onClick={() => scrollTo("onlyfriends")}
-                    className="text-sm md:text-lg hover:underline font-semibold"
-                >
-                    OnlyFriends
-                </button>
-            </div>
         </div>
     );
 }
