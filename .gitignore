@@ -1,0 +1,15 @@
+# Root (no app here — everything lives in /web)
+.DS_Store
+*.pem
+.env*.local
+.vercel
+
+# Next.js app in web/
+web/node_modules/
+web/.next/
+web/out/
+web/build/
+web/.tsbuildinfo
+web/npm-debug.log*
+web/yarn-debug.log*
+web/yarn-error.log*
