@@ -1,7 +1,5 @@
 'use client';
 
-import Image from 'next/image';
-
 export default function Techstack() {
     interface Tech {
         label: string;
@@ -43,7 +41,7 @@ export default function Techstack() {
     ) => (
         <section
             id={id}
-            className="min-h-[calc(100vh-3.5rem)] md:min-h-screen flex flex -col justify-center items-center text-white px-4 py-20"
+            className="min-h-[calc(100vh-3.5rem)] md:min-h-screen flex flex-col justify-center items-center text-white px-4 py-20"
             style={{ backgroundImage: `linear-gradient(to bottom, ${bgFrom}, ${bgTo})` }}
         >
             <h2 className="text-4xl md:text-6xl font-semibold tracking-tight mb-12 text-center drop-shadow-lg">

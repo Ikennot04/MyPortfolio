@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from 'react';
 import { FaGithub, FaLinkedin, FaFacebook } from 'react-icons/fa';
-import Link from 'next/link';
+
 import { FiArrowUpRight } from 'react-icons/fi';
 
 export default function Details() {
