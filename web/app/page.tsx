@@ -47,7 +47,7 @@ export default function Details() {
 
     const experienceData = [
         { year: '2026', title: 'BS Computer Science', subtitle: 'Academic Milestone' },
-        { year: '2025', title: 'TOTO CAMPANER', subtitle: 'OJT / Intern' },
+        { year: '2025', title: 'TOTO CAMPANER', subtitle: 'Web Developer' },
         { year: '2022', title: 'Hello World', subtitle: 'Wrote my first line of code' },
     ];
 
