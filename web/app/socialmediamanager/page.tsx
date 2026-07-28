@@ -2,7 +2,7 @@
 
 import Image from 'next/image';
 
-export default function Techstack() {
+export default function SocialMediaManager() {
     interface Tech {
         label: string;
         img: string;
@@ -14,7 +14,6 @@ export default function Techstack() {
             { label: 'Canva', img: '/images/freelancing/Canva.jpeg', mastery: 85 },
             { label: 'Capcut', img: '/images/freelancing/capcut.jpg', mastery: 90 },
             { label: 'Figma', img: '/images/freelancing/Figma.png', mastery: 90 },
-            
         ],
         backend: [
             { label: 'Meta Business Suite', img: '/images/freelancing/meta.webp', mastery: 88 },
@@ -31,66 +30,78 @@ export default function Techstack() {
         ],
     };
 
+    const sections = [
+        { id: 'content-creation', title: 'Content Creation', techs: techData.frontend, from: '#0b1220', to: '#111827' },
+        { id: 'scheduling', title: 'Scheduling & Automation', techs: techData.backend, from: '#0a0f1c', to: '#111827' },
+        { id: 'analytics', title: 'Analytics & Reporting', techs: techData.mobile, from: '#0b1b3a', to: '#1e3a8a' },
+        { id: 'productivity', title: 'Productivity & Management', techs: techData.versionControl, from: '#070a12', to: '#0f172a' },
+    ] as const;
+
     const scrollTo = (id: string) => {
         const element = document.getElementById(id);
         if (element) element.scrollIntoView({ behavior: 'smooth' });
     };
 
-    const renderSection = (
-        id: string,
-        title: string,
-        techs: Tech[],
-        bgFrom: string,
-        bgTo: string
-    ) => (
+    const renderSection = (id: string, title: string, techs: Tech[], bgFrom: string, bgTo: string) => (
         <section
             id={id}
-            className="min-h-[calc(100vh-3.5rem)] md:min-h-screen flex flex-col justify-center items-center text-white px-4 py-20"
+            className="flex min-h-[calc(100vh-3.5rem)] flex-col items-center justify-center px-4 py-16 pb-28 text-white sm:px-6 sm:py-20 md:min-h-screen md:pb-24"
             style={{ backgroundImage: `linear-gradient(to bottom, ${bgFrom}, ${bgTo})` }}
         >
-            <h2 className="text-4xl md:text-6xl font-semibold tracking-tight mb-12 text-center drop-shadow-lg">
+            <h2 className="mb-8 max-w-4xl text-balance px-2 text-center text-xl font-semibold tracking-tight drop-shadow-lg sm:mb-12 sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl">
                 {title}
             </h2>
-            <div className="flex flex-wrap justify-center gap-10 max-w-6xl">
+            <div className="mx-auto flex w-full max-w-6xl flex-wrap justify-center gap-6 sm:gap-8 md:gap-10">
                 {techs.map(({ label, img, mastery }) => (
-                    <div key={label} className="flex flex-col items-center hover:scale-[1.03] transition-transform">
-                        <div className="bg-white/95 rounded-2xl flex items-center justify-center w-56 h-56 md:w-64 md:h-64 shadow-2xl mb-4 border border-white/10">
-                            <Image src={img} alt={`${label} Logo`} width={160} height={160} className="object-contain" />
+                    <div key={label} className="flex w-[min(100%,11rem)] flex-col items-center transition-transform hover:scale-[1.02] sm:w-auto">
+                        <div className="mb-3 flex h-36 w-36 items-center justify-center rounded-2xl border border-white/10 bg-white/95 shadow-2xl sm:mb-4 sm:h-44 sm:w-44 md:h-56 md:w-56 lg:h-64 lg:w-64">
+                            <Image
+                                src={img}
+                                alt={`${label} logo`}
+                                width={160}
+                                height={160}
+                                className="h-auto max-h-[70%] w-auto max-w-[70%] object-contain p-2"
+                            />
                         </div>
-                        <span className="text-xl md:text-2xl font-semibold tracking-wide mb-2">{label.toUpperCase()}</span>
-                        <div className="w-56 md:w-64 bg-white/90 rounded-full h-3 overflow-hidden mb-1">
-                            <div className="bg-emerald-400 h-full" style={{ width: `${mastery}%` }} />
+                        <span className="mb-2 text-center text-sm font-semibold tracking-wide sm:text-base md:text-lg lg:text-xl">
+                            {label.toUpperCase()}
+                        </span>
+                        <div className="mb-1 h-2 w-full max-w-[11rem] overflow-hidden rounded-full bg-white/90 sm:max-w-[12rem] md:max-w-[16rem]">
+                            <div className="h-full bg-emerald-400" style={{ width: `${mastery}%` }} />
                         </div>
-                        <span className="text-sm text-white/90">{mastery}% Mastery</span>
+                        <span className="text-xs text-white/90 sm:text-sm">{mastery}% Mastery</span>
                     </div>
                 ))}
             </div>
         </section>
     );
 
+    const navItems = [
+        { id: 'content-creation', label: 'Content' },
+        { id: 'scheduling', label: 'Scheduling' },
+        { id: 'analytics', label: 'Analytics' },
+        { id: 'productivity', label: 'Productivity' },
+    ];
+
     return (
-        <div className="w-full overflow-hidden relative font-sans">
+        <div className="relative w-full overflow-hidden font-sans">
             <main className="flex flex-col scroll-smooth">
-                {renderSection('Content Creation', 'Content Creation', techData.frontend, '#0b1220', '#111827')}
-                {renderSection('Scheduling & Automation', 'Scheduling & Automation', techData.backend, '#0a0f1c', '#111827')}
-                {renderSection('Analytics & Reporting', 'Analytics & Reporting', techData.mobile, '#0b1b3a', '#1e3a8a')}
-                {renderSection('Productivity & Management', 'Productivity & Management', techData.versionControl, '#070a12', '#0f172a')}
+                {sections.map((section) =>
+                    renderSection(section.id, section.title, section.techs, section.from, section.to)
+                )}
             </main>
 
-            {/* Bottom Navigation */}
-            <div className="fixed bottom-0 left-0 right-0 md:left-72 bg-zinc-950/85 backdrop-blur text-white px-3 py-3 flex justify-around items-center z-50 border-t border-white/10">
-                <button onClick={() => scrollTo('Content Creation')} className="text-[10px] md:text-sm hover:text-white/90 font-semibold tracking-wide">
-                    Content Creation
-                </button>
-                <button onClick={() => scrollTo('Scheduling & Automation')} className="text-[10px] md:text-sm hover:text-white/90 font-semibold tracking-wide">
-                    Scheduling & Automation
-                </button>
-                <button onClick={() => scrollTo('Analytics & Reporting')} className="text-[10px] md:text-sm hover:text-white/90 font-semibold tracking-wide">
-                    Analytics & Reporting
-                </button>
-                <button onClick={() => scrollTo('Productivity & Management')} className="text-[10px] md:text-sm hover:text-white/90 font-semibold tracking-wide">
-                    Productivity & Management
-                </button>
+            <div className="fixed bottom-0 left-0 right-0 z-50 flex items-center gap-1 border-t border-white/10 bg-zinc-950/90 px-2 py-2 backdrop-blur sm:gap-2 sm:px-3 sm:py-3 md:left-64 lg:left-72">
+                {navItems.map((item) => (
+                    <button
+                        key={item.id}
+                        type="button"
+                        onClick={() => scrollTo(item.id)}
+                        className="min-w-0 flex-1 px-1 py-1 text-center text-[10px] font-semibold tracking-wide hover:text-white/90 sm:px-2 sm:text-xs md:text-sm"
+                    >
+                        {item.label}
+                    </button>
+                ))}
             </div>
         </div>
     );

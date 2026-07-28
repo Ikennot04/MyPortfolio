@@ -18,10 +18,10 @@ export default function RootLayout({
 }) {
     return (
         <html lang="en">
-            <body className={inter.className}>
+            <body className={`${inter.className} overflow-x-hidden`}>
                 <div className="min-h-screen bg-gradient-to-b from-zinc-950 via-zinc-950 to-black text-zinc-50">
                     <Navbar />
-                    <main className="pt-14 md:pt-0 md:pl-72">
+                    <main className="w-full min-w-0 pt-14 md:pt-0 md:pl-64 lg:pl-72">
                         {children}
                     </main>
                 </div>

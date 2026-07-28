@@ -178,7 +178,7 @@ export default function Details() {
 
     const renderTechLine = (labels: string[]) => (
         <div
-            className={`mt-2 flex flex-wrap items-center gap-x-6 gap-y-2 border-b-[0.5px] pb-3 ${
+            className={`mt-2 flex flex-wrap items-center gap-x-3 gap-y-2 border-b-[0.5px] pb-3 sm:gap-x-6 ${
                 isLightMode ? 'border-zinc-300' : 'border-white/15'
             }`}
         >
@@ -230,8 +230,8 @@ export default function Details() {
                 />
             </div>
 
-            <section className="px-6 pt-0 pb-14 md:px-12 md:pt-0 md:pb-20">
-                <div className="mx-auto max-w-6xl">
+            <section className="px-4 pb-14 pt-2 sm:px-6 sm:pt-0 md:px-8 md:pb-16 lg:px-12 lg:pb-20">
+                <div className="mx-auto w-full max-w-6xl">
                     <div className="flex justify-end">
                         <button
                             type="button"
@@ -248,34 +248,30 @@ export default function Details() {
                     <div className="grid grid-cols-1 gap-10 items-center">
                         <div>
                            
-                            <div className="mt-0 flex items-start gap-4">
+                            <div className="mt-0 flex flex-col items-start gap-4 sm:flex-row sm:gap-5">
                                 <video
                                     ref={videoRef}
                                     src="/images/Profile.mp4"
                                     muted
                                     playsInline
                                     preload="auto"
-                                    className={`h-[96px] w-[99px] md:h-[165px] md:w-[132px] rounded-2xl object-cover border ${
+                                    className={`h-20 w-20 shrink-0 rounded-2xl border object-cover sm:h-24 sm:w-24 md:h-32 md:w-32 lg:h-[165px] lg:w-[132px] ${
                                         isLightMode ? 'border-zinc-300' : 'border-white/10'
                                     }`}
                                 />
-                                <div>
+                                <div className="min-w-0 w-full flex-1">
                                     <h1
-                                        className={`whitespace-nowrap text-2xl md:text-6xl font-semibold tracking-tight ${
+                                        className={`text-balance text-xl font-semibold tracking-tight sm:text-2xl md:text-4xl lg:text-5xl xl:text-6xl ${
                                             isLightMode ? 'text-zinc-900' : 'text-white'
                                         }`}
                                     >
                                         Kent John Brian C. Flores
                                     </h1>
-                                    
-                                    <div className={`mt-2 text-sm ${isLightMode ? 'text-zinc-700' : 'text-zinc-300'}`}>
-                                    <span
-                                   
-                                >
-                                    📍 Cebu, Philippines
-                                </span>
+
+                                    <div className={`mt-2 text-xs sm:text-sm ${isLightMode ? 'text-zinc-700' : 'text-zinc-300'}`}>
+                                        <span>📍 Cebu, Philippines</span>
                                     </div>
-                                    <div className="mt-4 flex items-center gap-3">
+                                    <div className="mt-4 flex flex-wrap items-center gap-2 sm:gap-3">
                                 <a
                                     href="https://github.com/Ikennot04"
                                     target="_blank"
@@ -317,7 +313,7 @@ export default function Details() {
                                 </a>
                                 <a
                                     href="mailto:kentjohnbrianflores@gmail.com"
-                                    className={`inline-flex items-center gap-2 rounded-xl border px-5 py-3 text-sm font-semibold transition ${
+                                    className={`inline-flex w-full items-center justify-center gap-2 rounded-xl border px-4 py-2.5 text-sm font-semibold transition sm:w-auto sm:px-5 sm:py-3 ${
                                         isLightMode
                                             ? 'border-zinc-300 text-zinc-700 hover:text-zinc-900 hover:bg-zinc-200/50'
                                             : 'border-white/10 text-zinc-200 hover:text-white hover:bg-white/5'
@@ -336,14 +332,14 @@ export default function Details() {
                                 I build reliable APIs, clean dashboards, and end-to-end apps. I focus on performance, maintainability,
                                 and user experience—from backend architecture to polished UI.
                             </p>
-                            <div className="mt-12 flex flex-row items-start gap-5">
+                            <div className="mt-8 flex flex-col items-stretch gap-5 sm:mt-10 lg:mt-12 lg:flex-row lg:items-start">
                                 <div
-                                    className={`min-w-0 flex-1 rounded-2xl border-[0.5px] p-5 ${
+                                    className={`min-w-0 w-full rounded-2xl border-[0.5px] p-4 sm:p-5 lg:flex-1 ${
                                         isLightMode ? 'border-zinc-300 bg-zinc-100' : 'border-white/10 bg-zinc-900/60'
                                     }`}
                                 >
-                                    <div className="mb-4 flex items-center justify-between gap-3">
-                                        <h3 className={`text-lg font-semibold ${isLightMode ? 'text-zinc-900' : 'text-white'}`}>
+                                    <div className="mb-4 flex flex-wrap items-center justify-between gap-2 sm:gap-3">
+                                        <h3 className={`text-base font-semibold sm:text-lg ${isLightMode ? 'text-zinc-900' : 'text-white'}`}>
                                             Tech Stack
                                         </h3>
                                         <button
@@ -359,7 +355,7 @@ export default function Details() {
                                     <div className="space-y-4">
                                         {(Object.keys(techData) as Array<keyof typeof techData>).map((sectionKey) => (
                                             <div key={sectionKey}>
-                                                <div className={`text-lg font-semibold ${isLightMode ? 'text-zinc-900' : 'text-white'}`}>
+                                                <div className={`text-base font-semibold sm:text-lg ${isLightMode ? 'text-zinc-900' : 'text-white'}`}>
                                                     {techSectionLabels[sectionKey]}
                                                 </div>
                                                 {renderTechLine(techData[sectionKey].map((tech) => tech.label))}
@@ -369,11 +365,11 @@ export default function Details() {
                                 </div>
 
                                 <div
-                                    className={`min-w-0 flex-1 rounded-2xl border-[0.5px] p-5 ${
+                                    className={`min-w-0 w-full rounded-2xl border-[0.5px] p-4 sm:p-5 lg:flex-1 ${
                                         isLightMode ? 'border-zinc-300 bg-zinc-100' : 'border-white/10 bg-zinc-900/60'
                                     }`}
                                 >
-                                    <h3 className={`mb-4 text-lg font-semibold ${isLightMode ? 'text-zinc-900' : 'text-white'}`}>
+                                    <h3 className={`mb-4 text-base font-semibold sm:text-lg ${isLightMode ? 'text-zinc-900' : 'text-white'}`}>
                                         Experience
                                     </h3>
                                     <div className="relative pl-5">
@@ -396,10 +392,10 @@ export default function Details() {
                                                                   : 'border-zinc-400 bg-transparent'
                                                         }`}
                                                     />
-                                                    <div className="flex items-start justify-between gap-4">
-                                                        <div>
+                                                    <div className="flex flex-col gap-1 sm:flex-row sm:items-start sm:justify-between sm:gap-4">
+                                                        <div className="min-w-0">
                                                             <div
-                                                                className={`text-xl font-semibold ${
+                                                                className={`text-base font-semibold sm:text-lg md:text-xl ${
                                                                     index === 0
                                                                         ? isLightMode
                                                                             ? 'text-zinc-950'
@@ -426,7 +422,7 @@ export default function Details() {
                                                             </div>
                                                         </div>
                                                         <div
-                                                            className={`pt-1 text-xs font-semibold ${
+                                                            className={`shrink-0 text-xs font-semibold sm:pt-1 sm:text-right ${
                                                                 index === 0
                                                                     ? isLightMode
                                                                         ? 'text-zinc-800'
@@ -452,8 +448,12 @@ export default function Details() {
             </section>
 
             {isTechModalOpen && (
-                <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 px-4">
-                    <div className={`w-full max-w-xl rounded-2xl border-[0.5px] p-5 shadow-2xl ${isLightMode ? 'border-zinc-300 bg-zinc-100' : 'border-white/10 bg-zinc-900'}`}>
+                <div className="fixed inset-0 z-50 flex items-end justify-center bg-black/60 p-4 sm:items-center">
+                    <div
+                        className={`max-h-[min(90vh,100%)] w-full max-w-xl overflow-y-auto rounded-2xl border-[0.5px] p-4 shadow-2xl sm:p-5 ${
+                            isLightMode ? 'border-zinc-300 bg-zinc-100' : 'border-white/10 bg-zinc-900'
+                        }`}
+                    >
                         <div className="mb-5 flex items-center justify-between">
                             <h3 className={`text-lg font-semibold ${isLightMode ? 'text-zinc-900' : 'text-white'}`}>
                                 Tech Stack

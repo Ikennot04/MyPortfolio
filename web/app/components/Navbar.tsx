@@ -152,7 +152,7 @@ export default function Navbar() {
       )}
 
       {/* Desktop sidebar */}
-      <nav className="hidden md:flex fixed top-0 left-0 h-screen w-72 px-5 py-6 z-40">
+      <nav className="hidden md:flex fixed top-0 left-0 h-screen w-64 lg:w-72 px-4 lg:px-5 py-6 z-40">
         <div className="w-full rounded-3xl bg-zinc-950/70 backdrop-blur border border-white/10 shadow-2xl flex flex-col">
           <div className="px-4 pt-5 pb-4 border-b border-white/10">
             <Link href="/" className="flex items-center gap-3">
@@ -172,7 +172,10 @@ export default function Navbar() {
             <div className="text-xs text-zinc-400">
               <span className="text-zinc-200 font-medium">Available for work</span>
               <div className="mt-1">
-                <a className="hover:text-white transition" href="mailto:kentjohnbrianflores@gmail.com">
+                <a
+                  className="break-all hover:text-white transition"
+                  href="mailto:kentjohnbrianflores@gmail.com"
+                >
                   kentjohnbrianflores@gmail.com
                 </a>
               </div>
