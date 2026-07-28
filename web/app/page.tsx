@@ -441,6 +441,41 @@ export default function Details() {
                                     </div>
                                 </div>
                             </div>
+
+                            <div
+                                className={`mt-5 w-full rounded-2xl border-[0.5px] p-4 sm:p-5 ${
+                                    isLightMode ? 'border-zinc-300 bg-zinc-100' : 'border-white/10 bg-zinc-900/60'
+                                }`}
+                            >
+                                <div className="mb-4 flex flex-wrap items-center justify-between gap-2 sm:gap-3">
+                                    <h3 className={`text-base font-semibold sm:text-lg ${isLightMode ? 'text-zinc-900' : 'text-white'}`}>
+                                        GitHub Contributions
+                                    </h3>
+                                    <a
+                                        href="https://github.com/Ikennot04"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className={`text-xs font-semibold transition ${
+                                            isLightMode ? 'text-zinc-900 hover:text-zinc-700' : 'text-zinc-100 hover:text-white'
+                                        }`}
+                                    >
+                                        @Ikennot04 &gt;
+                                    </a>
+                                </div>
+                                <div className="w-full overflow-x-auto">
+                                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                                    <img
+                                        key={isLightMode ? 'light' : 'dark'}
+                                        src={
+                                            isLightMode
+                                                ? 'https://ghchart.xqsit94.in/Ikennot04'
+                                                : 'https://ghchart.xqsit94.in/dark:default/Ikennot04'
+                                        }
+                                        alt="GitHub contribution graph for Ikennot04"
+                                        className="mx-auto h-auto w-full min-w-[640px] max-w-4xl"
+                                    />
+                                </div>
+                            </div>
                         </div>
                     </div>
 
